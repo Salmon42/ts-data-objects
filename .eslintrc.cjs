@@ -40,7 +40,7 @@ module.exports = {
 			['warn', { allow: ['warn', 'error', 'info'] }],
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 
-		'no-unused-vars': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
+		// 'no-unused-vars': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
 		'@typescript-eslint/no-unused-vars': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
 
 		// ---- ---- TypeScript only
@@ -57,7 +57,7 @@ module.exports = {
 		'@stylistic/no-trailing-spaces': ['warn'],
 		'@stylistic/spaced-comment': ['warn', 'always'],
 		'@stylistic/no-multi-spaces': ['warn'],
-		'@stylistic/space-before-function-paren': ['warn', 'never'],
+		'@stylistic/space-before-function-paren': ['warn', 'always'],
 
 		'@stylistic/indent': [
 			'warn',
