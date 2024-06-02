@@ -1,9 +1,7 @@
-import { calculation } from '@/implementation'
-import { debug } from '#/func'
+import { debug, p } from '#/func'
 
-console.info('Hello SRC!?')
-
+p()
 debug({
 	test: 'value',
-	calculated: calculation(10, 10, '*'),
+	calculated: 10 * 10,
 })

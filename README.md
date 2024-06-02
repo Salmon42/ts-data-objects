@@ -6,6 +6,7 @@ Template for TypeScript/Vite library available for consumption by SPA's or web a
 ### Scripts
 
 * `yarn`: Installs dependencies
+* `yarn dev`: Runs minimal `index.html` page for temporary dev-tests
 * `yarn lint`: Runs ESLint on `/lib`, `/scripts` and `/tests` sources
 * `yarn test`: Runs Vitest on `/tests` spec files with unit test implementations
 * `yarn build`: Runs production build

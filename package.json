@@ -1,8 +1,8 @@
 {
-  "name": "ts-lib-template",
-  "version": "0.8.0",
+  "name": "ts-data-objects",
+  "version": "0.0.1",
   "private": true,
-  "description": "Template for TypeScript/Vite library available for consumption by SPA's or web apps",
+  "description": "(TBD)",
   "author": {
     "name": "Andrej Hučko",
     "email": "andrejhucko@pm.me",
