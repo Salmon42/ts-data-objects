@@ -1,7 +1,8 @@
 import { debug, p } from '#/func'
+import { ExampleData, parseExampleData } from '#/ExampleData'
 
 p()
-debug({
-	test: 'value',
-	calculated: 10 * 10,
-})
+debug(parseExampleData({
+	first: 40,
+	second: '5',
+}))
