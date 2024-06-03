@@ -1,6 +1,6 @@
 import { Expect } from '@/libtypes'
 import { DataConstructor } from '@/dataModel'
-import { DataModelGuard } from '@/dataGuard'
+import { DataModelGuard } from '@/libtypes'
 import { DataValidationError } from '@/dataError'
 
 /**
