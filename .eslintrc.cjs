@@ -39,6 +39,7 @@ module.exports = {
 			['error', { allow: ['warn', 'error', 'info'] }] :
 			['warn', { allow: ['warn', 'error', 'info'] }],
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+		'no-empty': 'warn',
 
 		// 'no-unused-vars': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
 		'@typescript-eslint/no-unused-vars': process.env.NODE_ENV === 'production' ? 'error' : 'warn',

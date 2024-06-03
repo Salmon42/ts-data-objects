@@ -2,22 +2,11 @@
 //
 //
 
-import { Expect } from '@/libtypes'
-
-
-/**
- * ...
- */
-export type GuardPredicate<T extends object> = (o?: Expect<T>) => boolean
-
-/**
- * ...
- */
-export type DataModelGuard<T extends object> = (o?: Expect<T>) => o is T
+import { Expect, GuardPredicate, DataModelGuard } from '@/libtypes'
 
 
 // function dataGuardF<T extends object> (predicate: GuardPredicate<T>): (o?: Expect<T>) => o is T {
-// 	return (dataObject?: Expect<T>): dataObject is T => predicate(dataObject)
+// return (dataObject?: Expect<T>): dataObject is T => predicate(dataObject)
 // }
 
 

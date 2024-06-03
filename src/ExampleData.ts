@@ -1,4 +1,4 @@
-import { dataParser, dataGuard, dataModel } from '@/main'
+import { dataParser, dataModel, dataGuard } from '@/main'
 
 /**
  * Example data type.
@@ -15,9 +15,9 @@ export const ExampleData = dataModel<ExampleData>({
 	third: 'test',
 })
 
-export const isExampleData = dataGuard<ExampleData>(o => (
-	typeof o?.first === 'number' &&
-	typeof o?.second === 'string'
-))
+// export const { isExampleData, validExampleData } = dataGuard<ExampleData, 'ExampleData'>('ExampleData', o => (
+// typeof o?.first === 'number' &&
+// typeof o?.second === 'string'
+// ))
 
-export const parseExampleData = dataParser('ExampleData', ExampleData, isExampleData)
+// export const parseExampleData = dataParser('ExampleData', ExampleData, validExampleData)
