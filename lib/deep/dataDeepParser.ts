@@ -1,7 +1,8 @@
-import { Expect } from '@/libtypes'
-import { DataConstructor } from '@/dataModel'
-import { DataModelValidator } from '@/dataDeepGuard'
-import { DataValidationError } from '@/dataError'
+import { DataValidationError } from '@/core/dataError'
+import { DataConstructor } from '@/simple/dataModel'
+import type { Expect } from '@/core/types'
+import type { DataModelValidator } from '@/deep/types'
+
 
 /**
  *

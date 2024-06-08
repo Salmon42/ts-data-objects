@@ -2,7 +2,7 @@
 //
 //
 
-import { Expect, GuardPredicate, DataModelGuard } from '@/libtypes'
+import type { Expect, GuardPredicate, DataModelGuard } from '@/core/types'
 
 
 // function dataGuardF<T extends object> (predicate: GuardPredicate<T>): (o?: Expect<T>) => o is T {

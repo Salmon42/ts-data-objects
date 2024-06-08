@@ -11,8 +11,10 @@ export class DataValidationError extends Error {
 	constructor (
 		public dataType: string,
 		public value: unknown,
-		public detail: string = '(not provided)',
+		public detail?: string,
 	) {
-		super(`Model Validation Error → [${dataType}] {${JSON.stringify(value, null, 4)}}. Invalid value for [${detail}]`)
+		const json = JSON.stringify(value, null, 4)
+		const additional = detail ? ` Invalid value for [${detail}]` : ''
+		super(`Model Validation Error → [${dataType}] {${json}}.${additional}`)
 	}
 }

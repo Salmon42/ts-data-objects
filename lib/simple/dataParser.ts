@@ -1,7 +1,7 @@
-import { Expect } from '@/libtypes'
-import { DataConstructor } from '@/dataModel'
-import { DataModelGuard } from '@/libtypes'
-import { DataValidationError } from '@/dataError'
+import type { Expect, DataModelGuard } from '@/core/types'
+import { DataValidationError } from '@/core/dataError'
+import { DataConstructor } from '@/simple/dataModel'
+
 
 /**
  *
@@ -30,4 +30,5 @@ export const dataParser = <T extends object>(
 	constructorFunction: DataConstructor<T>,
 	guardFunction: DataModelGuard<T>,
 ) =>
-	(data?: Expect<T>) => DataValidation(dataType, constructorFunction, guardFunction, data)
+	(data?: Expect<T>) =>
+		DataValidation(dataType, constructorFunction, guardFunction, data)
