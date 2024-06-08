@@ -1,5 +1,5 @@
 import { DataValidationError } from '@/core/dataError'
-import { DataConstructor } from '@/simple/dataModel'
+import { DataConstructor } from '@/simple/types'
 import type { Expect } from '@/core/types'
 import type { DataModelValidator } from '@/deep/types'
 

@@ -1,6 +1,6 @@
 import type { Expect, DataModelGuard } from '@/core/types'
 import { DataValidationError } from '@/core/dataError'
-import { DataConstructor } from '@/simple/dataModel'
+import { DataConstructor } from '@/simple/types'
 
 
 /**

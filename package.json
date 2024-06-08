@@ -1,8 +1,9 @@
 {
   "name": "ts-data-objects",
   "version": "0.3.0",
-  "private": true,
-  "description": "(TBD)",
+
+	"description": "(TBD)",
+	"license": "MIT",
   "author": {
     "name": "Andrej Hučko",
     "email": "andrejhucko@pm.me",

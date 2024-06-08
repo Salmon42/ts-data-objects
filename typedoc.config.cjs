@@ -6,8 +6,11 @@
 
 /** @type {import('typedoc').TypeDocOptions} */
 module.exports = {
-	name: 'Testing Documentation Name',
-	entryPoints: ['lib/main.ts'],
+	name: 'TypeScript Data Objects',
+	entryPoints: [
+		'lib/main.ts',
+		'lib/types.ts',
+	],
 	includeVersion: true,
 	readme: 'tmp/doc-readme.md',
 	cacheBust: true,
