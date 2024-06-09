@@ -2,13 +2,16 @@ import fs from 'fs'
 import { print } from './utils/functions.js'
 
 /** @param {string} filename */
-const toggledMarkdown = (filename) => {
+const toggledMarkdown = (filename, first = false) => {
 	console.info('> Adding', filename)
 
 	// Extract the first line (# title) and replace it
 	const mdlines = fs.readFileSync(filename, 'utf-8').split('\n')
-	mdlines[0] = '~\n\n'
+	// mdlines[0] = '~\n\n'
+	mdlines[0] = ''
 	const md = mdlines.join('\n')
+
+	if (first) return md
 
 	return `<details>
 	<summary><b>${filename}</b></summary>
@@ -21,10 +24,11 @@ const toggledMarkdown = (filename) => {
 print('Packing README and CHANGELOG into single file for TypeDoc...')
 
 const imagelink = 'Documentation Status: ![image](./coverage.svg)\n<hr/><br>'
-const readme = toggledMarkdown('README.md')
+const readme = toggledMarkdown('README.md', true)
 const changelog = toggledMarkdown('CHANGELOG.md')
-const scaffolding = toggledMarkdown('SCAFFOLDING.md')
-const content = `${imagelink}\n\n${readme}\n\n${changelog}\n\n${scaffolding}`
+const development = toggledMarkdown('readme/DEVELOPMENT.md')
+const scaffolding = toggledMarkdown('readme/SCAFFOLDING.md')
+const content = `${imagelink}\n\n${readme}\n\n${changelog}\n\n${development}\n\n${scaffolding}`
 
 if (!fs.existsSync('tmp')) fs.mkdirSync('tmp')
 fs.writeFileSync('tmp/doc-readme.md', content, {

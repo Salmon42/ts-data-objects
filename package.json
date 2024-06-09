@@ -2,7 +2,7 @@
   "name": "ts-data-objects",
   "version": "0.3.0",
 
-	"description": "(TBD)",
+	"description": "Small library for enhancing plain JS objects with TypeScript wrappers enabling easy API data assertion and validation",
 	"license": "MIT",
   "author": {
     "name": "Andrej Hučko",
