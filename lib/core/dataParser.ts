@@ -1,9 +1,11 @@
-import type { Expect, DataModelGuard } from '@/core/types'
-import { DataValidationError } from '@/core/dataError'
-import { DataConstructor } from '@/simple/types'
+import type { Expect, DataModelGuard } from '@/common/types'
+import { DataValidationError } from '@/common/dataError'
+import { DataConstructor } from '@/core/types'
 
 
 /**
+ * ...
+ * @category Core Implementation
  *
  * @param dataType
  * @param constructorFunction
@@ -25,6 +27,15 @@ const DataValidation = <T extends object>(
 	}
 }
 
+/**
+ * ...
+ * @category Core Implementation
+ *
+ * @param dataType
+ * @param constructorFunction
+ * @param guardFunction
+ * @returns
+ */
 export const dataParser = <T extends object>(
 	dataType: string,
 	constructorFunction: DataConstructor<T>,

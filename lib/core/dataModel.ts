@@ -1,9 +1,11 @@
-import { Expect } from '@/core/types'
+import { Expect } from '@/common/types'
 import { DataConstructor } from './types'
 
 
 /**
  * Data model constructor generator
+ * @category Core Implementation
+ *
  * @template T
  * @param defaultValues supplied default values for any kind of parameters within the {@link T} type
  * @returns data model constructor

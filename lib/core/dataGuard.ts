@@ -2,7 +2,7 @@
 //
 //
 
-import type { Expect, GuardPredicate, DataModelGuard } from '@/core/types'
+import type { Expect, GuardPredicate, DataModelGuard } from '@/common/types'
 
 
 // function dataGuardF<T extends object> (predicate: GuardPredicate<T>): (o?: Expect<T>) => o is T {
@@ -12,6 +12,8 @@ import type { Expect, GuardPredicate, DataModelGuard } from '@/core/types'
 
 /**
  * Data model type guard generator
+ * @category Core Implementation
+ *
  * @template T
  * @param predicate ...
  * @returns ...

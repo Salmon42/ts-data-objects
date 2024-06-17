@@ -1,18 +1,10 @@
-import { Expect, DataModelGuard, GuardPredicate } from '@/core/types'
-import { DataModelGuards, DataModelRule, DataModelRuleList, DataModelValidator } from '@/deep/types'
-import { DataConstructor } from '@/simple/types'
+/**
+ * This is the doc comment for types.ts
+ *
+ * @packageDocumentation
+ */
 
-//
 
-export type {
-	Expect,
-	DataModelGuard,
-	GuardPredicate,
-
-	DataModelGuards,
-	DataModelRule,
-	DataModelRuleList,
-	DataModelValidator,
-
-	DataConstructor,
-}
+export type { Expect, DataModelGuard, GuardPredicate } from '@/common/types'
+export type { DataModelGuards, DataModelRule, DataModelRuleList, DataModelValidator } from '@/deep/types'
+export type { DataConstructor } from '@/core/types'

@@ -2,10 +2,18 @@
 //
 //
 
-import { Expect } from '@/core/types'
+import { Expect } from '@/common/types'
 import type { DataModelGuards, DataModelRuleList } from '@/deep/types'
 
 
+/**
+ * data deep functionality
+ * @category Advanced Implementation
+ *
+ * @param typeName
+ * @param modelRules
+ * @returns
+ */
 export const dataDeepGuard = <Type extends object, TypeName extends string>(
 	typeName: TypeName,
 	modelRules: DataModelRuleList<Type>,

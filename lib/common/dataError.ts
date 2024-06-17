@@ -5,7 +5,7 @@
  * is not expected model and we need to ensure the
  * model has all required attributes
  *
- *
+ * @category Common Utils
  */
 export class DataValidationError extends Error {
 	constructor (
