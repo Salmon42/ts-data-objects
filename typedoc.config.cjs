@@ -16,13 +16,8 @@ module.exports = {
 	cacheBust: true,
 
 	navigationLinks: {
-		'Example': 'https://google.com'
+		'GitHub': 'https://github.com/Salmon42/ts-data-objects',
 	},
-
-	sidebarLinks: {
-		'Example': 'https://google.com'
-	},
-
 
 	plugin: [
 		'typedoc-plugin-coverage', 				// https://www.npmjs.com/package/typedoc-plugin-coverage
