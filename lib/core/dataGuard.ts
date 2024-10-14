@@ -1,7 +1,3 @@
-//
-//
-//
-
 import type { Expect, GuardPredicate, DataModelGuard } from '@/common/types'
 
 
@@ -12,8 +8,16 @@ import type { Expect, GuardPredicate, DataModelGuard } from '@/common/types'
 
 /**
  * Data model type guard generator
- * @category Core Implementation
+ * * Function that generates TypeScript guard function for a given TS interface.
+ * * Accepted parameter is a predicate function that would be applied to label a given
+ * JS Object a valid data model complying the TS interface
+ * * Here is the place where you can use type assertions from common
  *
+ * ```
+ * ...
+ * ```
+ *
+ * @category Core Implementation
  * @template T
  * @param predicate ...
  * @returns ...
