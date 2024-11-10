@@ -1,4 +1,4 @@
-# Scaffolding
+## Scaffolding
 
 > Documentation of the steps of what was used for scaffolding this template.
 ---
@@ -65,3 +65,5 @@
 	* `yarn add -D typedoc`
 	* https://typedoc.org/
 	* https://typedoc.org/guides/installation/#typedoc.json
+
+* ~

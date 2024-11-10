@@ -1,4 +1,4 @@
-### Scripts
+## Scripts
 
 * `yarn`: Installs dependencies
 * `yarn dev`: Runs minimal `index.html` page for temporary dev-tests
@@ -17,3 +17,5 @@
 	* ESLint (base, typescript, stylistic)
 	* TypeDoc (and plugins)
 	* Vitest
+
+* ~
