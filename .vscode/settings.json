@@ -3,5 +3,6 @@
 		"activityBar.background": "#491313",
 		"titleBar.activeBackground": "#6d1313",
 		"titleBar.activeForeground": "#FDFAF7"
-	}
+	},
+	"editor.rulers": [160]
 }

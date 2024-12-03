@@ -1,7 +1,7 @@
 import { DataValidationError } from '@/common/dataError'
 import { DataConstructor } from '@/core/types'
 import type { Expect } from '@/common/types'
-import type { DataModelValidator } from '@/deep/types'
+import type { DeepGuardAssertionFunction } from '@/deep/types'
 
 
 /**
@@ -17,15 +17,15 @@ import type { DataModelValidator } from '@/deep/types'
 const DataValidation = <T extends object>(
 	dataType: string,
 	constructorFunction: DataConstructor<T>,
-	guardFunction: DataModelValidator<T>,
+	validationFunction: DeepGuardAssertionFunction<T>,
 	value?: Expect<T>,
 ) => {
-	const guardResult = guardFunction(value)
-	if (!guardResult) {
+	const result = validationFunction(value)
+	if (!result) {
 		return constructorFunction(value)
 	}
 	else {
-		throw new DataValidationError(dataType, value, guardResult)
+		throw new DataValidationError(dataType, value, result)
 	}
 }
 
@@ -41,7 +41,7 @@ const DataValidation = <T extends object>(
 export const dataDeepParser = <T extends object>(
 	dataType: string,
 	constructorFunction: DataConstructor<T>,
-	validationFunction: DataModelValidator<T>,
+	validationFunction: DeepGuardAssertionFunction<T>,
 ) =>
 	(data?: Expect<T>) => DataValidation(dataType, constructorFunction, validationFunction, data)
 

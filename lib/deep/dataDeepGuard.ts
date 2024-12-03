@@ -3,7 +3,12 @@
 //
 
 import { Expect } from '@/common/types'
-import type { DataModelGuards, DataModelRuleList } from '@/deep/types'
+import type {
+	DataModelGuards, DataModelRules,
+	DeepGuardInnerIsFunction, DeepGuardIsFunction,
+	DeepGuardInnerAssertionFunction, DeepGuardAssertionFunction,
+	IsFunction, AssertionFunction, DataModelRulesObject,
+} from '@/deep/types'
 
 
 /**
@@ -16,9 +21,21 @@ import type { DataModelGuards, DataModelRuleList } from '@/deep/types'
  */
 export const dataDeepGuard = <Type extends object, TypeName extends string>(
 	typeName: TypeName,
-	modelRules: DataModelRuleList<Type>,
+	modelRules: DataModelRules<Type>,
 ): DataModelGuards<Type, TypeName> => {
-	const isFunction = (dataObject?: Expect<Type>, innerRules?: DataModelRuleList<any>): dataObject is Type => {
+	// ~
+
+
+	/**
+	 * TODO: move the interpretation to TS type
+	 * Function performing runtime typechecks on unknowingly nested object.
+	 *
+	 * @param dataObject - source object
+	 * @param innerRules - object-like structure combined with tuples.
+	 * @returns two functions: is${Type} as guard fn, valid${Type} as assertion fn, ${Type}Rules
+	 * as the same rule object passed into this function for convenience
+	 */
+	const __isFunction: DeepGuardInnerIsFunction<Type> = (dataObject?: Expect<Type>, innerRules?: DataModelRules<any>): dataObject is Type => {
 		const rules = innerRules ?? modelRules
 		for (const [name, [type, array]] of Object.entries(rules)) {
 			const ptr = dataObject[name]
@@ -33,8 +50,8 @@ export const dataDeepGuard = <Type extends object, TypeName extends string>(
 			else {
 				// testing inner datamodel
 				result = array
-					? Array.isArray(ptr) && ptr.every(item => isFunction(item, type))
-					: isFunction(ptr, type)
+					? Array.isArray(ptr) && ptr.every(item => __isFunction(item, type))
+					: __isFunction(ptr, type)
 			}
 
 			if (!result) return false
@@ -42,7 +59,14 @@ export const dataDeepGuard = <Type extends object, TypeName extends string>(
 		return true
 	}
 
-	const validationFunction = (dataObject?: Expect<Type>, innerRules?: DataModelRuleList<any>): string | undefined => {
+	/**
+	 * reduce the user-available validation function to not contain the second optional argument
+	 * because in either way, the first call of validation function is without nesting - innerRules
+	 * are undefined
+	 */
+	const isFunction: DeepGuardIsFunction<Type> = o => __isFunction(o)
+
+	const __validationFunction: DeepGuardInnerAssertionFunction<Type> = (dataObject?: Expect<Type>, innerRules?: DataModelRules<any>): string | undefined => {
 		const rules = innerRules ?? modelRules
 		for (const [name, [type, array]] of Object.entries(rules)) {
 			const ptr = dataObject[name]
@@ -65,12 +89,12 @@ export const dataDeepGuard = <Type extends object, TypeName extends string>(
 				if (array) {
 					if (! Array.isArray(ptr)) return `[${name}]: "${ptr}" (invalid object array)`
 					for (const arrItem of ptr) {
-						const r = validationFunction(arrItem, type)
+						const r = __validationFunction(arrItem, type)
 						if (r != null) return r
 					}
 				}
 				else {
-					const r = validationFunction(ptr, type)
+					const r = __validationFunction(ptr, type)
 					if (r != null) return r
 				}
 			}
@@ -78,9 +102,20 @@ export const dataDeepGuard = <Type extends object, TypeName extends string>(
 		return undefined
 	}
 
+	/**
+	 * reduce the user-available validation function to not contain the second optional argument
+	 * because in either way, the first call of validation function is without nesting - innerRules
+	 * are undefined
+	 */
+	const validationFunction: DeepGuardAssertionFunction<Type> = o => __validationFunction(o)
+
+	const __is_function = { [`is${typeName}`]: isFunction } as IsFunction<Type, TypeName>
+	const __as_function = { [`valid${typeName}`]: validationFunction } as AssertionFunction<Type, TypeName>
+	const __model_rules = { [`${typeName}Rules`]: modelRules } as DataModelRulesObject<Type, TypeName>
+
 	return {
-		[`is${typeName}`]: isFunction,
-		[`valid${typeName}`]: validationFunction,
-		[`${typeName}Rules`]: modelRules,
-	} as DataModelGuards<Type, TypeName>
+		...__is_function,
+		...__as_function,
+		...__model_rules,
+	}
 }
