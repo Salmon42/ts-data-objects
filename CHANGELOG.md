@@ -1,6 +1,7 @@
-# Changelog
+## Changelog
 
 * ...
+* `0.4.0`: Slightly improved doc generation
 * `0.3.0`: Draft of alternative deep validation implementation
 * `0.2.0`: Finalization of core implementation
 * `0.1.0`: First core implementation draft
