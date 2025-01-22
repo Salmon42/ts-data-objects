@@ -6,4 +6,3 @@
 
 export { dataDeepGuard } from './dataDeepGuard'
 export { dataDeepParser } from './dataDeepParser'
-export type { DataModelGuards, DataModelRule, DataModelRuleList, DataModelValidator } from './types'

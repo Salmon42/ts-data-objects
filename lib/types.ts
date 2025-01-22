@@ -5,6 +5,29 @@
  */
 
 
-export type { Expect, DataModelGuard, GuardPredicate } from '@/common/types'
-export type { DataModelGuards, DataModelRule, DataModelRuleList, DataModelValidator } from '@/deep/types'
-export type { DataConstructor } from '@/core/types'
+export type {
+	Expect,
+	DataModelGuard,
+	GuardPredicate,
+} from '@/common/types'
+
+export type {
+	DataConstructor,
+	DefinedObject,
+	NamedConstructor,
+	NamedGuard,
+	NamedParser,
+} from '@/core/types'
+
+export type {
+	DataModelGuards,
+	DataModelRule,
+	AssertionFunction,
+	DataModelRules,
+	DataModelRulesObject,
+	DeepGuardAssertionFunction,
+	DeepGuardInnerAssertionFunction,
+	DeepGuardInnerIsFunction,
+	DeepGuardIsFunction,
+	IsFunction,
+} from '@/deep/types'
