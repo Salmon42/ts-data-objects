@@ -1,4 +1,4 @@
-import { dataModel } from './dataObject'
+import { dataObject } from './dataObject'
 import { dataGuard } from './dataGuard'
 import { dataParser } from './dataParser'
 import type { DefinedObject, DefineObjectParams, NamedConstructor, NamedGuard, NamedParser } from './types'
@@ -12,7 +12,7 @@ import type { DefinedObject, DefineObjectParams, NamedConstructor, NamedGuard, N
  * @returns functions related to crafting and validating a typed data object
  */
 export const defineObject = <Type extends object, TypeName extends string>(typeName: TypeName, options: DefineObjectParams<Type>): DefinedObject<Type, TypeName> => {
-	const __constructor = dataModel<Type>(options?.defaultValues)
+	const __constructor = dataObject<Type>(options?.defaultValues)
 	const __namedConstructor = { [`${typeName}`]: __constructor } as NamedConstructor<Type, TypeName>
 
 	const __guard = dataGuard<Type>(options.predicate)

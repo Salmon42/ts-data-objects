@@ -11,7 +11,7 @@ import type { DataConstructor } from '@/core/types'
  *
  * @template T - the TypeScript type the object should satisfy
  * @param dataType - stringified name of the TS type
- * @param constructorFunction - the function returned by `dataModel()`
+ * @param constructorFunction - the function returned by `dataObject()`
  * @param guardFunction - the function returned by `dataGuard()`
  * @param doNotThrow - defaults to false
  * @param value - the actual unknown JSON object
@@ -46,7 +46,7 @@ const DPI = <T extends object>(
  *
  * @template T - the TypeScript type the object should satisfy
  * @param dataType - stringified name of the TS type
- * @param constructorFunction - the function returned by `dataModel()`
+ * @param constructorFunction - the function returned by `dataObject()`
  * @param guardFunction - the function returned by `dataGuard()`
  * @param doNotThrow - default behavior is to throw error on incorrect validation, you can disable it here with `true`
  * @returns parsing function that validates JSON object, otherwise throws or logs error (depending on `doNotThrow` param)

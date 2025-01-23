@@ -2,7 +2,7 @@
 // Use Case of ts-data-objects/core & common
 //
 
-import { dataGuard, isNum, isStr, isBool, dataModel, dataParser } from '@/main'
+import { dataGuard, isNum, isStr, isBool, dataObject, dataParser } from '@/main'
 
 
 export type ExampleData = {
@@ -13,7 +13,7 @@ export type ExampleData = {
 }
 
 
-export const ExampleData = dataModel<ExampleData>({
+export const ExampleData = dataObject<ExampleData>({
 	name: 'John Doe',
 	age: 20,
 	verified: false,

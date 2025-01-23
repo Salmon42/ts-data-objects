@@ -1,4 +1,4 @@
-import { dataParser, dataModel, dataGuard } from '@/main'
+import { dataParser, dataObject, dataGuard } from '@/main'
 import { isNum, isStr } from '@/common'
 
 
@@ -9,7 +9,7 @@ export type TrivialExampleData = {
 }
 
 
-export const TrivialExampleData = dataModel<TrivialExampleData>({
+export const TrivialExampleData = dataObject<TrivialExampleData>({
 	first: 10,
 	second: '',
 	third: 'test',

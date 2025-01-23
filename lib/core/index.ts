@@ -5,7 +5,7 @@
  */
 
 export { dataGuard } from './dataGuard'
-export { dataModel } from './dataObject'
+export { dataObject } from './dataObject'
 export { dataParser } from './dataParser'
 export { defineObject } from './defineObject'
 export type { DataConstructor } from './types'

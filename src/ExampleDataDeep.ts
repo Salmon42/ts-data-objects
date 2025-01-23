@@ -1,4 +1,4 @@
-import { dataModel, dataDeepGuard, dataDeepParser } from '@/main'
+import { dataObject, dataDeepGuard, dataDeepParser } from '@/main'
 
 
 export type ExampleData = {
@@ -9,7 +9,7 @@ export type ExampleData = {
 }
 
 
-export const ExampleData = dataModel<ExampleData>({
+export const ExampleData = dataObject<ExampleData>({
 	name: 'John Doe',
 	age: 20,
 	verified: false,
