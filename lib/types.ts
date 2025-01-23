@@ -7,7 +7,7 @@
 
 export type {
 	Expect,
-	DataModelGuard,
+	DataObjectGuard,
 	GuardPredicate,
 } from '@/common/types'
 

@@ -1,5 +1,5 @@
-import { Expect } from '@/common/types'
-import { DataConstructor } from './types'
+import type { Expect } from '@/common/types'
+import type { DataConstructor } from './types'
 
 
 /**

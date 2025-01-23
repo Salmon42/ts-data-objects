@@ -2,7 +2,7 @@
 //
 //
 
-import { Expect } from '@/common/types'
+import type { Expect } from '@/common/types'
 import type {
 	DataModelGuards, DataModelRules,
 	DeepGuardInnerIsFunction, DeepGuardIsFunction,
@@ -24,7 +24,6 @@ export const dataDeepGuard = <Type extends object, TypeName extends string>(
 	modelRules: DataModelRules<Type>,
 ): DataModelGuards<Type, TypeName> => {
 	// ~
-
 
 	/**
 	 * TODO: move the interpretation to TS type

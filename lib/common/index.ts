@@ -1,6 +1,6 @@
 /**
  * @categoryDescription Common Utils
- * These functions are available for... XXX
+ * These functions are available for asserting primitives.
  * @module
  */
 
@@ -10,4 +10,4 @@ export {
 	isNum,
 	isStr,
 } from './dataAsserts'
-export type { Expect, DataModelGuard, GuardPredicate } from './types'
+export type { Expect, DataObjectGuard, GuardPredicate } from './types'

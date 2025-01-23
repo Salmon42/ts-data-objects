@@ -1,6 +1,6 @@
-import type { Expect, DataModelGuard } from '@/common/types'
 import { DataValidationError } from '@/common/dataError'
-import { DataConstructor } from '@/core/types'
+import type { Expect, DataObjectGuard } from '@/common/types'
+import type { DataConstructor } from '@/core/types'
 
 
 /**
@@ -20,7 +20,7 @@ import { DataConstructor } from '@/core/types'
 const DPI = <T extends object>(
 	dataType: string,
 	constructorFunction: DataConstructor<T>,
-	guardFunction: DataModelGuard<T>,
+	guardFunction: DataObjectGuard<T>,
 	doNotThrow: boolean,
 	value?: Expect<T>,
 ) => {
@@ -54,7 +54,7 @@ const DPI = <T extends object>(
 export const dataParser = <T extends object>(
 	dataType: string,
 	constructorFunction: DataConstructor<T>,
-	guardFunction: DataModelGuard<T>,
+	guardFunction: DataObjectGuard<T>,
 	doNotThrow?: boolean,
 ): DataConstructor<T> =>
 	(data?: Expect<T>) => DPI(dataType, constructorFunction, guardFunction, doNotThrow ?? false, data)

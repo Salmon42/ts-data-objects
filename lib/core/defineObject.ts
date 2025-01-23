@@ -1,7 +1,7 @@
 import { dataModel } from './dataModel'
 import { dataGuard } from './dataGuard'
 import { dataParser } from './dataParser'
-import { DefinedObject, DefineObjectParams, NamedConstructor, NamedGuard, NamedParser } from './types'
+import type { DefinedObject, DefineObjectParams, NamedConstructor, NamedGuard, NamedParser } from './types'
 
 
 /**

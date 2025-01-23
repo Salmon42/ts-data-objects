@@ -1,11 +1,11 @@
-import type { Expect, GuardPredicate, DataModelGuard } from '@/common/types'
+import type { Expect, GuardPredicate, DataObjectGuard } from '@/common/types'
 
 
 /**
- * Data model type guard generator
+ * Data object type guard generator
  * * Function that generates TypeScript guard function for a given TS interface.
- * * Accepted parameter is a predicate function that would be applied to label a given
- * JS Object a valid data model complying the TS interface
+ * * Accepted parameter is a predicate function that would be applied to determine
+ * whether a given JSON object is complying the TS interface
  * * Here is the place where you can use type assertions from common
  *
  * ```
@@ -31,5 +31,5 @@ import type { Expect, GuardPredicate, DataModelGuard } from '@/common/types'
  * @param predicate - function that receives the object of expected type to perform type checks on attributes
  * @returns typed guard function that returns `true/false` depending if it passed the predicate
  */
-export const dataGuard = <T extends object>(predicate: GuardPredicate<T>): DataModelGuard<T> =>
+export const dataGuard = <T extends object>(predicate: GuardPredicate<T>): DataObjectGuard<T> =>
 	(dataObject?: Expect<T>): dataObject is T => predicate(dataObject)

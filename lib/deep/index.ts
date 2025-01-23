@@ -1,6 +1,6 @@
 /**
  * @categoryDescription Advanced Implementation
- * These functions are available for... YYYY
+ * These functions are currently in experimental phase. Guard and Parser should work together with core/dataModel
  * @module
  */
 
