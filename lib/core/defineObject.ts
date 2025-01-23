@@ -1,4 +1,4 @@
-import { dataModel } from './dataModel'
+import { dataModel } from './dataObject'
 import { dataGuard } from './dataGuard'
 import { dataParser } from './dataParser'
 import type { DefinedObject, DefineObjectParams, NamedConstructor, NamedGuard, NamedParser } from './types'
