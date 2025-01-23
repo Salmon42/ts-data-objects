@@ -64,7 +64,7 @@ export const dataDeepGuard = <Type extends object, TypeName extends string>(
 	 * because in either way, the first call of validation function is without nesting - innerRules
 	 * are undefined
 	 */
-	const isFunction: DeepGuardIsFunction<Type> = o => __isFunction(o)
+	const isFunction: DeepGuardIsFunction<Type> = (o): o is Type => __isFunction(o)
 
 	const __validationFunction: DeepGuardInnerAssertionFunction<Type> = (dataObject?: Expect<Type>, innerRules?: DataModelRules<any>): string | undefined => {
 		const rules = innerRules ?? modelRules
