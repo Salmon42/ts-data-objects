@@ -10,4 +10,3 @@ export {
 	isNum,
 	isStr,
 } from './dataAsserts'
-export type { Expect, DataObjectGuard, GuardPredicate } from './types'

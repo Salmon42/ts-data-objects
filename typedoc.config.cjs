@@ -30,20 +30,20 @@ module.exports = {
 	// This modifies the calculation of the coverage
 	// https://typedoc.org/options/validation/#requiredtobedocumented
 	requiredToBeDocumented: [
-		// ? 'Project,
-		// ? 'Module',
-		// ? 'Namespace',
-		// 'Enum',
-		// 'EnumMember',
-		// 'Variable',
-		// 'Function',
+		'Project',
+		'Module',
+		'Namespace',
+		'Enum',
+		'EnumMember',
+		'Variable',
+		'Function',
 		'Class',
-		// 'Interface',
-		// ? 'Constructor',
-		// 'Property',
-		// 'Method',
-		// 'Accessor',
-		// 'TypeAlias',
+		'Interface',
+		'Constructor',
+		'Property',
+		'Method',
+		'Accessor',
+		'TypeAlias',
 	],
 
 	// typedoc-plugin-coverage

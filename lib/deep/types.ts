@@ -37,7 +37,7 @@ export type DeepGuardIsFunction<T extends object> = (
 /**
  * TODO~
  * ...
- * @category Advanced Implementation
+ * @category Advanced/Experimental Implementation
  */
 export type DeepGuardInnerAssertionFunction<T extends object> = (
 	dataObject?: Expect<T>,
@@ -49,7 +49,7 @@ export type DeepGuardInnerAssertionFunction<T extends object> = (
  * TODO: ...
  * (tbd) return undefined if validation passed, otherwise return self-ref
  * usable by parser to determine innermost problem of data model
- * @category Advanced Implementation
+ * @category Advanced/Experimental Implementation
  */
 export type DeepGuardAssertionFunction<T extends object> = (o?: Expect<T>) => string | undefined
 
@@ -64,7 +64,7 @@ export type DeepGuardAssertionFunction<T extends object> = (o?: Expect<T>) => st
  *
  * Named tuple
  *
- * @category Advanced Implementation
+ * @category Advanced/Experimental Implementation
  */
 export type DataModelRule = [
 	type: 'string' | 'number' | 'boolean' | DataModelRules<any>,
@@ -74,7 +74,7 @@ export type DataModelRule = [
 
 /**
  * TODO:...
- * @category Advanced Implementation
+ * @category Advanced/Experimental Implementation
  */
 export type DataModelRules<T extends object> = | // Either Array of rules, or mapped object of rules
 	// ArrayLike<DataModelRule> |
@@ -90,6 +90,8 @@ export type DataModelRules<T extends object> = | // Either Array of rules, or ma
  * Scaffolder for is${Type} function.
  * @see {@link DeepGuardIsFunction}
  * @see {@link DeepGuardInnerIsFunction}
+ *
+ * @category Advanced/Experimental Implementation
  */
 export type IsFunction<Type extends object, TypeName extends string> =
 	{ [DataTypeName in TypeName as `is${DataTypeName}`]: DeepGuardIsFunction<Type> }
@@ -99,6 +101,8 @@ export type IsFunction<Type extends object, TypeName extends string> =
  * Scaffolder for valid${Type} function
  * @see {@link DeepGuardAssertionFunction}
  * @see {@link DeepGuardInnerAssertionFunction}
+ *
+ * @category Advanced/Experimental Implementation
  */
 export type AssertionFunction<Type extends object, TypeName extends string> =
 { [DataTypeName in TypeName as `valid${DataTypeName}`]: DeepGuardAssertionFunction<Type> }
@@ -108,6 +112,8 @@ export type AssertionFunction<Type extends object, TypeName extends string> =
  * Scaffolder for ${Type}Rules object.
  * This object is basically just a convenience returning of the same object passed into DeepGuard generator.
  * @see {@link DataModelRules}
+ *
+ * @category Advanced/Experimental Implementation
  */
 export type DataModelRulesObject<Type extends object, TypeName extends string> =
 { [DataTypeName in TypeName as `${DataTypeName}Rules`]: DataModelRules<Type> }
@@ -121,7 +127,8 @@ export type DataModelRulesObject<Type extends object, TypeName extends string> =
 /**
  * TODO:?
  * holder of guard and validator function
- * @category Advanced Implementation
+ *
+ * @category Advanced/Experimental Implementation
  */
 export type DataModelGuards<Type extends object, TypeName extends string> =
 	IsFunction<Type, TypeName> &

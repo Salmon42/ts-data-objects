@@ -26,11 +26,11 @@ export const dataDeepGuard = <Type extends object, TypeName extends string>(
 	// ~
 
 	/**
-	 * TODO: move the interpretation to TS type
+	 * TODO: move the interpretation to TS type (old doc here!)
 	 * Function performing runtime typechecks on unknowingly nested object.
 	 *
 	 * @param dataObject - source object
-	 * @param innerRules - object-like structure combined with tuples.
+	 * @param innerRules - object-like structure combined with tuples
 	 * @returns two functions: is${Type} as guard fn, valid${Type} as assertion fn, ${Type}Rules
 	 * as the same rule object passed into this function for convenience
 	 */
@@ -65,6 +65,13 @@ export const dataDeepGuard = <Type extends object, TypeName extends string>(
 	 */
 	const isFunction: DeepGuardIsFunction<Type> = (o): o is Type => __isFunction(o)
 
+
+	/**
+	 * TODO: fill the documentation
+	 * @param dataObject - source object
+	 * @param innerRules - object-like structure combined with tuples
+	 * @returns
+	 */
 	const __validationFunction: DeepGuardInnerAssertionFunction<Type> = (dataObject?: Expect<Type>, innerRules?: DataModelRules<any>): string | undefined => {
 		const rules = innerRules ?? modelRules
 		for (const [name, [type, array]] of Object.entries(rules)) {
