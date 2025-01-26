@@ -23,6 +23,7 @@
 		"./deep": "./deep.js"
 	},
   "scripts": {
+		"all": "yarn clean && yarn build && yarn doc && yarn deploy",
     "build": "tsc && vite build",
 		"clean": "tsx scripts/clean.ts",
     "dev": "vite",
