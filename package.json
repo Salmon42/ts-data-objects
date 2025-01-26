@@ -1,7 +1,7 @@
 {
   "name": "ts-data-objects",
   "version": "0.5.0",
-  "description": "Small library for enhancing plain JS objects with TypeScript wrappers enabling easy API data assertion and validation",
+  "description": "Simple lightweight library for enhancing plain JS objects with TypeScript wrappers enabling easy API data assertion and validation",
   "license": "MIT",
   "author": {
     "name": "Andrej Hučko",
@@ -14,7 +14,17 @@
     "url": "git+https://github.com/Salmon42/ts-data-objects.git"
   },
   "keywords": [
-    ""
+    "typescript",
+		"json",
+    "schema",
+    "validation",
+    "parsing",
+    "assertion",
+    "type",
+    "inference",
+    "data-object",
+    "data-model",
+    "api-types"
   ],
 	"type": "module",
 	"exports": {
