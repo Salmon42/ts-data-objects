@@ -7,6 +7,8 @@ import type { DefinedObject, DefineObjectParams, NamedConstructor, NamedGuard, N
 /**
  * * Composing function constructing functions defining, validating and parsing a JSON object to comply with given TS type.
  *
+ * @category Core Implementation
+ *
  * @param typeName - Name of the typed object. Required to enable partial code reflexion due to TypeScript code being removed from built bundle
  * @param options - see {@link DefineObjectParams}
  * @returns functions related to crafting and validating a typed data object
