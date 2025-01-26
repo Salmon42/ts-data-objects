@@ -2,7 +2,20 @@
   "name": "ts-data-objects",
   "version": "0.5.0",
 	"type": "module",
-
+	"description": "Small library for enhancing plain JS objects with TypeScript wrappers enabling easy API data assertion and validation",
+	"license": "MIT",
+  "author": {
+    "name": "Andrej Hučko",
+    "email": "andrejhucko@pm.me",
+    "url": "https://github.com/Salmon42"
+  },
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Salmon42/ts-data-objects.git"
+	},
+	"keywords": [
+		""
+	],
   "scripts": {
 		"build": "tsc && vite build",
 		"dev": "vite",
@@ -16,9 +29,7 @@
     "purge": "rm -rf dist/ node_modules/ docs/ tmp/",
 		"test": "vitest"
   },
-
   "dependencies": {},
-
   "devDependencies": {
     "@stylistic/eslint-plugin": "^1.7.0",
     "@types/eslint": "^8.56.9",
@@ -40,16 +51,5 @@
     "vite-plugin-eslint": "^1.8.1",
     "vitest": "^1.5.0"
   },
-
-  "peerDependencies": {},
-
-	"description": "Small library for enhancing plain JS objects with TypeScript wrappers enabling easy API data assertion and validation",
-	"license": "MIT",
-  "author": {
-    "name": "Andrej Hučko",
-    "email": "andrejhucko@pm.me",
-    "url": "https://github.com/Salmon42"
-  },
-	"repository": {},
-	"keywords": []
+  "peerDependencies": {}
 }
