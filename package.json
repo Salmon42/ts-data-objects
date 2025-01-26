@@ -8,6 +8,7 @@
     "email": "andrejhucko@pm.me",
     "url": "https://github.com/Salmon42"
   },
+	"homepage": "https://salmon42.github.io/ts-data-objects",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Salmon42/ts-data-objects.git"
