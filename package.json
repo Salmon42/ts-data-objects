@@ -1,21 +1,21 @@
 {
   "name": "ts-data-objects",
   "version": "0.5.0",
-  "description": "Simple lightweight library for enhancing plain JS objects with TypeScript wrappers enabling easy API data assertion and validation",
   "license": "MIT",
-  "author": {
-    "name": "Andrej Hučko",
-    "email": "andrejhucko@pm.me",
-    "url": "https://github.com/Salmon42"
-  },
-	"homepage": "https://salmon42.github.io/ts-data-objects",
+  "description": "Simple lightweight library for enhancing plain JS objects with TypeScript wrappers enabling easy API data assertion and validation",
+  "homepage": "https://salmon42.github.io/ts-data-objects",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Salmon42/ts-data-objects.git"
   },
+  "author": {
+    "name": "Andrej Hučko",
+    "email": "hucko.dev@gmail.com",
+    "url": "https://github.com/Salmon42"
+  },
   "keywords": [
     "typescript",
-		"json",
+    "json",
     "schema",
     "validation",
     "parsing",
@@ -26,16 +26,16 @@
     "data-model",
     "api-types"
   ],
-	"type": "module",
-	"exports": {
-		"./common": "./common.js",
-		"./core": "./core.js",
-		"./deep": "./deep.js"
-	},
+  "type": "module",
+  "exports": {
+    "./common": "./common.js",
+    "./core": "./core.js",
+    "./deep": "./deep.js"
+  },
   "scripts": {
-		"all": "yarn clean && yarn build && yarn doc && yarn deploy",
+    "all": "yarn clean && yarn build && yarn doc && yarn deploy",
     "build": "tsc && vite build",
-		"clean": "tsx scripts/clean.ts",
+    "clean": "tsx scripts/clean.ts",
     "dev": "vite",
     "deploy": "tsx scripts/deploy.ts",
     "doc": "tsx scripts/doc.ts",
