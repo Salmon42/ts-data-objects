@@ -17,6 +17,7 @@ export type {
 	NamedConstructor,
 	NamedGuard,
 	NamedParser,
+	DefineObjectParams,
 } from '@/core/types'
 
 export type {

@@ -2,34 +2,43 @@ import type { Expect, GuardPredicate, DataObjectGuard } from '@/common/types'
 
 
 /**
- * Data object type guard generator
- * * Function that generates TypeScript guard function for a given TS interface.
- * * Accepted parameter is a predicate function that would be applied to determine
- * whether a given JSON object is complying the TS interface
- * * Here is the place where you can use type assertions from common
+ * Creates a TypeScript type guard function for runtime type validation.
  *
- * ```
+ * Generates a type-safe validation function that:
+ * - Performs runtime type checking
+ * - Provides TypeScript type assertions
+ * - Supports partial input validation based on predicate
+ *
+ *
+ * @example
+ * ```typescript
  * import { dataGuard } from 'ts-data-objects/core'
- * import { isNum, isBool } from 'ts-data-objects/common'
- * type MyData = {
+ * import { isStr, isNum } from 'ts-data-objects/common'
+ *
+ * type UserData = {
  *   name: string
- *   age?: number
- *   verified: boolean
+ *   age: number
+ *   verified?: boolean
  * }
  *
  * // Here we define a function predicate, where `o` is the JSON object
  * // and we expect it to contain the attributes of the types we expect
- * const guardFunction = dataGuard<MyData>(o => (
+ * const isUserData = dataGuard<UserData>(o => (
  *   isStr(o?.name) &&
- *   isBool(o?.verified)
+ *   isNum(o?.age)
  * ))
  *
+ * // Usage:
+ * if (isUserData(someData)) {
+ *   //TypeScript now knows `someData` is `UserData`
+ *   console.log(someData.name)
+ * }
  * ```
  *
+ * @template T - The object type to create a guard for
+ * @param predicate - Validation function that checks type constraints
+ * @returns A type guard function that asserts input is of type T
  * @category Core Implementation
- * @template T - the TypeScript type the object should satisfy
- * @param predicate - function that receives the object of expected type to perform type checks on attributes
- * @returns typed guard function that returns `true/false` depending if it passed the predicate
  */
 export const dataGuard = <T extends object>(predicate: GuardPredicate<T>): DataObjectGuard<T> =>
 	(dataObject?: Expect<T>): dataObject is T => predicate(dataObject)

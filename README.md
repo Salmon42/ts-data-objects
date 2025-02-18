@@ -1,13 +1,23 @@
-# TypeScript Data Object
+# TypeScript Data Objects
 > Simple lightweight library for enhancing plain JS objects with TypeScript wrappers enabling easy API data assertion and validation.
+>
+> Implementation documentation can be found on https://salmon42.github.io/ts-data-objects.
+---
 
-.
+## Table of Contents
+*
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
 
 ---
 
+## What is this?
+...
+
 
 ## Installation
-You can install this package from NPM registry ...
+You can install this package from NPM registry https://www.npmjs.com/package/ts-data-objects.
 
 ```bash
 npm install ts-data-objects
@@ -15,7 +25,7 @@ npm install ts-data-objects
 
 
 ## Usage
-...
+
 
 
 ## License

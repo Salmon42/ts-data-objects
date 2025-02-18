@@ -1,16 +1,25 @@
 /**
- * Extended error class for Model Assertion.
+ * Custom internal error class for data validation failures.
  *
- * Convenient for throwing when any object or value
- * is not expected model and we need to ensure the
- * model has all required attributes
+ * Provides detailed error messages when data validation fails, including:
+ * - The expected data type name
+ * - The actual value that failed validation
+ * - Optional details about which specific validation failed
+ *
+ * @example
+ * ```typescript
+ * throw new DataValidationError('UserData', invalidData, 'age must be a number')
+ * ```
  *
  * @category Common Utils
  */
 export class DataValidationError extends Error {
 	constructor (
+		/** Name of the expected type */
 		public dataType: string,
+		/** The value that failed validation */
 		public value: unknown,
+		/** Optional details about the validation failure */
 		public detail?: string,
 	) {
 		const json = JSON.stringify(value, null, 4)

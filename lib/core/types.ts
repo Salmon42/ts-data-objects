@@ -1,14 +1,28 @@
 import type { Expect, DataObjectGuard, GuardPredicate } from '@/common/types'
 
+
 /**
- * Core data object constructor function signature
+ * Type signature for data object constructor functions.
+ * Creates a function that accepts partial data and returns complete typed objects.
+ * @template T - The object type to be constructed
+ * @param [o] - Optional partial input data
+ * @returns A complete object of type T
  * @category Core Implementation
  */
 export type DataConstructor<T extends object> = (o?: Expect<T>) => T
 
 
+// ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---
+// ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---
+
+
 /**
- * Param object type definition for data object composing function
+ * Configuration parameters for creating a complete data object definition.
+ *
+ * @template T - The type of object being defined
+ * @property [defaultValues] - Optional default values for object properties
+ * @property predicate - Validation function for type checking
+ * @property [doNotThrow] - Whether to suppress validation errors
  * @category Core Implementation
  */
 export type DefineObjectParams<T extends object> = {
@@ -18,9 +32,14 @@ export type DefineObjectParams<T extends object> = {
 }
 
 
+// ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---
+// ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---
+
+
 /**
- * Part of {@link DefinedObject}.
- * * Named constructor would be simply named after the parameter value when the object definition is invoked
+ * Creates a named constructor function type using the provided type name.
+ * - Example: For name "User", creates { User: (data?) => UserType }
+ * - Part of {@link DefinedObject}.
  * @category Core Implementation
  */
 export type NamedConstructor<Type extends object, TypeName extends string> =
@@ -28,8 +47,9 @@ export type NamedConstructor<Type extends object, TypeName extends string> =
 
 
 /**
- * Part of {@link DefinedObject}.
- * * Named guard function uses the name of the object name defined by developer, prefixed with `valid`
+ * Creates a named type guard function type with 'valid' prefix.
+ * - Example: For name "User", creates { validUser: (data?) => data is UserType }
+ * - Part of {@link DefinedObject}.
  * @category Core Implementation
  */
 export type NamedGuard<Type extends object, TypeName extends string> =
@@ -37,18 +57,26 @@ export type NamedGuard<Type extends object, TypeName extends string> =
 
 
 /**
- * Part of {@link DefinedObject}.
- * * Named parser function uses the name of the object name defined by developer, prefixed with `parse`
+ * Creates a named parser function type with 'parse' prefix.
+ * - Example: For name "User", creates { parseUser: (data?) => UserType }
+ * - Part of {@link DefinedObject}.
  * @category Core Implementation
  */
 export type NamedParser<Type extends object, TypeName extends string> =
 	{ [N in TypeName as `parse${N}`]: DataConstructor<Type> }
 
 
+// ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---
+// ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---
+
+
 /**
- * Return object of `defineObject` composing function to be used with destructuring
- * * Combined parts with {@link NamedConstructor}, {@link NamedGuard} and {@link NamedParser}
+ * Complete object definition combining constructor, guard, and parser functions.
+ * Provides a unified interface for working with typed data objects.
+ * - Combined parts with {@link NamedConstructor}, {@link NamedGuard} and {@link NamedParser}
  *
+ * @template Type - The object type being defined
+ * @template TypeName - The name to use for generated functions
  * @category Core Implementation
  */
 export type DefinedObject<Type extends object, TypeName extends string> =

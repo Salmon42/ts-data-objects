@@ -34,7 +34,7 @@ if (!existsSync(`${cwd}/dist`)) {
 copyFile('package.json')
 copyFile('README.md')
 copyFile('CHANGELOG.md', 'readme')
-info('Prepublish done.')
+info('Prepublish done. Now run "npm publish" in /dist directory.')
 
 // process.chdir('dist')
 

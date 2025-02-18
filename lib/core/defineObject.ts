@@ -5,13 +5,65 @@ import type { DefinedObject, DefineObjectParams, NamedConstructor, NamedGuard, N
 
 
 /**
- * * Composing function constructing functions defining, validating and parsing a JSON object to comply with given TS type.
+ * Creates a complete suite of functions for working with typed data objects.
+ * Combines object construction, validation, and parsing into a single definition.
  *
+ * This function generates:
+ * - A constructor function for creating objects with defaults
+ * - A type guard function for validation
+ * - A parser function for safely handling unknown data
+ *
+ * All functions are named based on the provided type name:
+ * - Constructor: [typeName]
+ * - Guard: valid[typeName]
+ * - Parser: parse[typeName]
+ *
+ * @example
+ * ```typescript
+ * import { defineObject } from 'ts-data-objects/core'
+ * import { isStr, isNum } from 'ts-data-objects/common'
+ *
+ * type UserData = {
+ *   name: string
+ *   age: number
+ *   verified?: boolean
+ * }
+ *
+ * const {
+ *   UserData,          // Constructor
+ *   validUserData,     // Type guard
+ *   parseUserData      // Parser
+ * } = defineObject<UserData>('UserData', {
+ *   defaultValues: { verified: false },
+ *   predicate: o => (
+ *     isStr(o?.name) &&
+ *     isNum(o?.age)
+ *   )
+ * })
+ *
+ * // Usage:
+ * const user = UserData({ name: 'John', age: 20 })
+ *
+ * if (validUserData(someData)) {
+ *   // TypeScript now knows `someData` is now `UserData`
+ *   console.log(someData)
+ * }
+ *
+ * // if the apiData is correct according to UserData guard, the data is validated
+ * try {
+ *   const receivedUser = parseUserData(apiData)
+ * }
+ * catch (e: any) {
+ *   // Handle the error...
+ * }
+ * ```
+ *
+ * @template Type - The object type to define
+ * @template TypeName - The name to use for generated functions
+ * @param typeName - Name used to generate function names
+ * @param options - Configuration for the object definition, see {@link DefineObjectParams}
+ * @returns Object containing named constructor, guard, and parser functions
  * @category Core Implementation
- *
- * @param typeName - Name of the typed object. Required to enable partial code reflexion due to TypeScript code being removed from built bundle
- * @param options - see {@link DefineObjectParams}
- * @returns functions related to crafting and validating a typed data object
  */
 export const defineObject = <Type extends object, TypeName extends string>(typeName: TypeName, options: DefineObjectParams<Type>): DefinedObject<Type, TypeName> => {
 	const __constructor = dataObject<Type>(options?.defaultValues)

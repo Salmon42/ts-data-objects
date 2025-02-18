@@ -22,4 +22,8 @@ export const validTrivialExampleData = dataGuard<TrivialExampleData>(o => (
 ))
 
 
-export const parseExampleData = dataParser('ExampleData', TrivialExampleData, validTrivialExampleData)
+export const parseExampleData = dataParser(
+	'ExampleData',
+	TrivialExampleData,
+	validTrivialExampleData,
+)
