@@ -44,5 +44,7 @@ import type { DataConstructor } from './types'
  * @returns A constructor function that creates objects of type T
  * @category Core Implementation
  */
-export const dataObject = <T extends object>(defaultValues?: T): DataConstructor<T> =>
-	(o: Expect<T>): T => defaultValues ? ({ ...defaultValues, ...o }): o as T
+export const dataObject = <T extends object>(defaultValues?: Expect<T>): DataConstructor<T> =>
+	(o: Expect<T>): T => defaultValues
+		? ({ ...defaultValues, ...o }) as T
+		: o as T

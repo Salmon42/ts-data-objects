@@ -17,7 +17,7 @@ export default defineConfig({
 		sourcemap: true,
 		lib: {
 			entry: {
-				// resolve(__dirname, 'lib/main.ts'),
+				main: resolve(__dirname, 'lib/main.ts'),
 				common: resolve(__dirname, 'lib/common/index.ts'),
 				core: resolve(__dirname, 'lib/core/index.ts'),
 				deep: resolve(__dirname, 'lib/deep/index.ts'),

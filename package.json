@@ -1,6 +1,6 @@
 {
   "name": "ts-data-objects",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "license": "MIT",
   "description": "Simple lightweight library for enhancing plain JS objects with TypeScript wrappers enabling easy API data assertion and validation",
   "homepage": "https://salmon42.github.io/ts-data-objects",
@@ -28,10 +28,12 @@
   ],
   "type": "module",
   "exports": {
+		".": "./main.js",
     "./common": "./common.js",
     "./core": "./core.js",
     "./deep": "./deep.js"
   },
+	"types": "main.d.ts",
   "scripts": {
     "all": "yarn clean && yarn build && yarn doc && yarn deploy",
     "build": "tsc && vite build",
