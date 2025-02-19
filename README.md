@@ -5,6 +5,7 @@
 > Implementation documentation can be found on https://salmon42.github.io/ts-data-objects.
 >
 > Changelog can be found [**here**](https://github.com/Salmon42/ts-data-objects/blob/master/readme/CHANGELOG.md)
+---
 
 <p align="center">
 	<a href="#top" target="_blank" rel="noreferrer">
@@ -12,8 +13,6 @@
 		<img src="https://raw.githubusercontent.com/Salmon42/ts-data-objects/refs/heads/master/readme/json.svg" alt="JSON" width="64px" height="64px" />
 	</a>
 </p>
-
----
 
 ## Table of Contents
 * [Introduction](#introduction)
@@ -174,7 +173,7 @@ This library is not at all something new in the web development environment. We 
 ## License
 This library is released under [MIT license](https://opensource.org/license/MIT), which means that you can reuse any part of code here for your convenience.
 
-Copyright (C) 2025-present, Andrej Hučko
+Copyright (C) 2025-present, **[Andrej Hučko](https://www.linkedin.com/in/andrejhucko/)**
 
 <p align="center">
 <b>If you like this library, don't hesitate to give this repository a star! 😊</b>
