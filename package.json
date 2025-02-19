@@ -1,6 +1,6 @@
 {
   "name": "ts-data-objects",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "license": "MIT",
   "description": "Simple lightweight library for enhancing plain JS objects with TypeScript wrappers enabling easy API data assertion and validation",
   "homepage": "https://salmon42.github.io/ts-data-objects",

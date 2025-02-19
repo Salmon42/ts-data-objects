@@ -1,5 +1,6 @@
 ## Changelog
 
+* `0.6.1`: Update README
 * `0.6.0`: Fix optional defaultValues for generated data object contructor, added thorough README
 * `0.5.1`: Refined JSDocs for generated HTML documentation
 * `0.5.0`: Introduced `defineObject`, fixed bugs
