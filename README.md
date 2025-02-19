@@ -3,6 +3,8 @@
 > Simple, lightweight, and flexible TypeScript library for creating type-safe data objects with validation.
 >
 > Implementation documentation can be found on https://salmon42.github.io/ts-data-objects.
+>
+> Changelog can be found [**here**](https://github.com/Salmon42/ts-data-objects/blob/master/readme/CHANGELOG.md)
 
 <p align="center">
 	<a href="#top" target="_blank" rel="noreferrer">
