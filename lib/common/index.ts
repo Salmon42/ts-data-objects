@@ -5,8 +5,4 @@
  */
 
 export { DataValidationError } from './dataError'
-export {
-	isBool,
-	isNum,
-	isStr,
-} from './dataAsserts'
+export * from './asserts'

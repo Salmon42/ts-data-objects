@@ -14,6 +14,17 @@ export type Expect<T> = Partial<T>
 
 
 /**
+ * Type for a predicate function that performs a type guard check
+ *
+ * @template T The type being checked against
+ * @param value - The unknown value to check
+ * @returns A type predicate indicating whether the value is of type T
+ * @category Common Utils
+ */
+export type Predicate<T> = (value: unknown) => value is T
+
+
+/**
  * Type signature for predicate functions that validate JSON objects.
  * Used to check if a partial object matches expected type constraints.
  *
