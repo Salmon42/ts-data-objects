@@ -13,7 +13,7 @@ import type { Expect } from '@/common/types'
 /**
  * TODO~
  * Type Definition for Deep Guard isFunction.
- * The advanced variant
+ * @category Experimental Implementation
  */
 export type DeepGuardInnerIsFunction<T extends object> = (
 	dataObject: Expect<T>,
@@ -23,6 +23,7 @@ export type DeepGuardInnerIsFunction<T extends object> = (
 
 /**
  * TODO~
+ * @category Experimental Implementation
  */
 export type DeepGuardIsFunction<T extends object> = (
 	dataObject: Expect<T>
@@ -37,7 +38,7 @@ export type DeepGuardIsFunction<T extends object> = (
 /**
  * TODO~
  * ...
- * @category Advanced/Experimental Implementation
+ * @category Experimental Implementation
  */
 export type DeepGuardInnerAssertionFunction<T extends object> = (
 	dataObject?: Expect<T>,
@@ -49,7 +50,7 @@ export type DeepGuardInnerAssertionFunction<T extends object> = (
  * TODO: ...
  * (tbd) return undefined if validation passed, otherwise return self-ref
  * usable by parser to determine innermost problem of data model
- * @category Advanced/Experimental Implementation
+ * @category Experimental Implementation
  */
 export type DeepGuardAssertionFunction<T extends object> = (o?: Expect<T>) => string | undefined
 
@@ -64,7 +65,7 @@ export type DeepGuardAssertionFunction<T extends object> = (o?: Expect<T>) => st
  *
  * Named tuple
  *
- * @category Advanced/Experimental Implementation
+ * @category Experimental Implementation
  */
 export type DataModelRule = [
 	type: 'string' | 'number' | 'boolean' | DataModelRules<any>,
@@ -74,7 +75,7 @@ export type DataModelRule = [
 
 /**
  * TODO:...
- * @category Advanced/Experimental Implementation
+ * @category Experimental Implementation
  */
 export type DataModelRules<T extends object> = | // Either Array of rules, or mapped object of rules
 	// ArrayLike<DataModelRule> |
@@ -91,7 +92,7 @@ export type DataModelRules<T extends object> = | // Either Array of rules, or ma
  * @see {@link DeepGuardIsFunction}
  * @see {@link DeepGuardInnerIsFunction}
  *
- * @category Advanced/Experimental Implementation
+ * @category Experimental Implementation
  */
 export type IsFunction<Type extends object, TypeName extends string> =
 	{ [DataTypeName in TypeName as `is${DataTypeName}`]: DeepGuardIsFunction<Type> }
@@ -102,7 +103,7 @@ export type IsFunction<Type extends object, TypeName extends string> =
  * @see {@link DeepGuardAssertionFunction}
  * @see {@link DeepGuardInnerAssertionFunction}
  *
- * @category Advanced/Experimental Implementation
+ * @category Experimental Implementation
  */
 export type AssertionFunction<Type extends object, TypeName extends string> =
 { [DataTypeName in TypeName as `valid${DataTypeName}`]: DeepGuardAssertionFunction<Type> }
@@ -113,7 +114,7 @@ export type AssertionFunction<Type extends object, TypeName extends string> =
  * This object is basically just a convenience returning of the same object passed into DeepGuard generator.
  * @see {@link DataModelRules}
  *
- * @category Advanced/Experimental Implementation
+ * @category Experimental Implementation
  */
 export type DataModelRulesObject<Type extends object, TypeName extends string> =
 { [DataTypeName in TypeName as `${DataTypeName}Rules`]: DataModelRules<Type> }
@@ -128,7 +129,7 @@ export type DataModelRulesObject<Type extends object, TypeName extends string> =
  * TODO:?
  * holder of guard and validator function
  *
- * @category Advanced/Experimental Implementation
+ * @category Experimental Implementation
  */
 export type DataModelGuards<Type extends object, TypeName extends string> =
 	IsFunction<Type, TypeName> &

@@ -6,7 +6,7 @@ import type { DeepGuardAssertionFunction } from '@/deep/types'
 
 /**
  * data deep validation
- * @category Advanced Implementation
+ * @category Experimental Implementation
  *
  * @param dataType
  * @param constructorFunction
@@ -31,7 +31,7 @@ const DPI = <T extends object>(
 
 /**
  * ...
- * @category Advanced Implementation
+ * @category Experimental Implementation
  *
  * @param dataType
  * @param constructorFunction

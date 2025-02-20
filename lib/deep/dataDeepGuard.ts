@@ -13,7 +13,7 @@ import type {
 
 /**
  * data deep functionality
- * @category Advanced Implementation
+ * @category Experimental Implementation
  *
  * @param typeName
  * @param modelRules
