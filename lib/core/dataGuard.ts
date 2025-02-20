@@ -41,4 +41,7 @@ import type { Expect, GuardPredicate, DataObjectGuard } from '@/common/types'
  * @category Core Implementation
  */
 export const dataGuard = <T extends object>(predicate: GuardPredicate<T>): DataObjectGuard<T> =>
-	(dataObject?: Expect<T>): dataObject is T => predicate(dataObject)
+	(dataObject?: Expect<T>): dataObject is T =>
+		typeof dataObject === 'object' &&
+		dataObject != null &&
+		predicate(dataObject)
