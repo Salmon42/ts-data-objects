@@ -50,7 +50,7 @@ import { ... } from 'ts-data-objects'
 // Importing only partial functionality
 import { ... } from 'ts-data-objects/common'
 import { ... } from 'ts-data-objects/core'
-import { ... } from 'ts-data-objects/deep'
+import { ... } from 'ts-data-objects/deep' // Currently only experimental
 ```
 
 ### Basic Object Definition
@@ -84,19 +84,18 @@ const user1 = User({ name: 'John', age: 20 })
 
 // Validate unknown data
 if (validUser(someData)) {
-	// TS now knows that someData is User
-	console.log(someData.name, someData.age)
+  // TS now knows that someData is User
+  console.log(someData.name, someData.age)
 }
 
 // Safely parse unknown data (throws on invalid data)
 // Throwing behavior may be changed with doNotThrow param in defineObject
 try {
-	const user2 = parseUser(apiResponse)
-	console.log(user2.name)
+  const user2 = parseUser(apiResponse)
+  console.log(user2.name)
 }
 catch (e: any) {
-	//
-	console.error(e)
+  console.error(e)
 }
 ```
 
@@ -108,26 +107,26 @@ import { dataObject, dataGuard } from 'ts-data-objects/core'
 import { isStr, isNum } from 'ts-data-objects/common'
 
 type User = {
-	name: string
-	age: number
-	verified?: boolean
+  name: string
+  age: number
+  verified?: boolean
 }
 
 // Just create objects with defaults
 const User = dataObject<User>({
   verified: false,
-	// Here you an provide any default-like values to fill
-	// if you don't get them from API response or want them
-	// to be created automatically.
+  // Here you an provide any default-like values to fill
+  // if you don't get them from API response or want them
+  // to be created automatically.
 })
 
 // Only guard function
 const isUser = dataGuard<User>(o => (
   isStr(o?.name) &&
   isNum(o?.age)
-	// You can use either helping typechecking functions
-	// from 'ts-data-objects/common'
-	// or use your own validation logic.
+  // You can use either helping typechecking functions
+  // from 'ts-data-objects/common'
+  // or use your own validation logic.
 ))
 ```
 
