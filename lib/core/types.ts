@@ -47,13 +47,13 @@ export type NamedConstructor<Type extends object, TypeName extends string> =
 
 
 /**
- * Creates a named type guard function type with 'valid' prefix.
- * - Example: For name "User", creates { validUser: (data?) => data is UserType }
+ * Creates a named type guard function type with 'is' prefix.
+ * - Example: For name "User", creates { isUser: (data?) => data is UserType }
  * - Part of {@link DefinedObject}.
  * @category Core Implementation
  */
 export type NamedGuard<Type extends object, TypeName extends string> =
-	{ [N in TypeName as `valid${N}`]: DataObjectGuard<Type> }
+	{ [N in TypeName as `is${N}`]: DataObjectGuard<Type> }
 
 
 /**

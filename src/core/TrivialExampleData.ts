@@ -16,7 +16,7 @@ export const TrivialExampleData = dataObject<TrivialExampleData>({
 })
 
 
-export const validTrivialExampleData = dataGuard<TrivialExampleData>(o => (
+export const isTrivialExampleData = dataGuard<TrivialExampleData>(o => (
 	isNum(o?.first) &&
 	isStr(o?.second)
 ))
@@ -25,5 +25,5 @@ export const validTrivialExampleData = dataGuard<TrivialExampleData>(o => (
 export const parseExampleData = dataParser(
 	'ExampleData',
 	TrivialExampleData,
-	validTrivialExampleData,
+	isTrivialExampleData,
 )

@@ -11,8 +11,8 @@ export type DefinedExampleData = {
 
 export const {
 	DefinedExampleData,
+	isDefinedExampleData,
 	parseDefinedExampleData,
-	validDefinedExampleData,
 } = defineObject<DefinedExampleData, 'DefinedExampleData'>('DefinedExampleData', {
 	predicate: o => (
 		isStr(o?.title) &&

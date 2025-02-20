@@ -15,7 +15,7 @@ import type { DefinedObject, DefineObjectParams, NamedConstructor, NamedGuard, N
  *
  * All functions are named based on the provided type name:
  * - Constructor: [typeName]
- * - Guard: valid[typeName]
+ * - Guard / Validation: is[typeName]
  * - Parser: parse[typeName]
  *
  * @example
@@ -30,9 +30,9 @@ import type { DefinedObject, DefineObjectParams, NamedConstructor, NamedGuard, N
  * }
  *
  * const {
- *   UserData,          // Constructor
- *   validUserData,     // Type guard
- *   parseUserData      // Parser
+ *   UserData,      // Constructor
+ *   isUserData,    // Type guard
+ *   parseUserData  // Parser
  * } = defineObject<UserData>('UserData', {
  *   defaultValues: { verified: false },
  *   predicate: o => (
@@ -44,7 +44,7 @@ import type { DefinedObject, DefineObjectParams, NamedConstructor, NamedGuard, N
  * // Usage:
  * const user = UserData({ name: 'John', age: 20 })
  *
- * if (validUserData(someData)) {
+ * if (isUserData(someData)) {
  *   // TypeScript now knows `someData` is now `UserData`
  *   console.log(someData)
  * }
@@ -67,12 +67,11 @@ import type { DefinedObject, DefineObjectParams, NamedConstructor, NamedGuard, N
  */
 export const defineObject = <Type extends object, TypeName extends string>(typeName: TypeName, options: DefineObjectParams<Type>): DefinedObject<Type, TypeName> => {
 	const __constructor = dataObject<Type>(options?.defaultValues)
-	const __namedConstructor = { [`${typeName}`]: __constructor } as NamedConstructor<Type, TypeName>
-
 	const __guard = dataGuard<Type>(options.predicate)
-	const __namedGuard = { [`valid${typeName}`]: __guard } as NamedGuard<Type, TypeName>
-
 	const __parser = dataParser<Type>(typeName, __constructor, __guard, options.doNotThrow)
+
+	const __namedConstructor = { [`${typeName}`]: __constructor } as NamedConstructor<Type, TypeName>
+	const __namedGuard = { [`is${typeName}`]: __guard } as NamedGuard<Type, TypeName>
 	const __namedParser = { [`parse${typeName}`]: __parser } as NamedParser<Type, TypeName>
 
 	return {
