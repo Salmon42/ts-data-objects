@@ -42,7 +42,8 @@
     "deploy": "tsx scripts/deploy.ts",
     "doc": "tsx scripts/doc.ts",
     "lint": "eslint .",
-    "test": "vitest"
+    "test": "vitest unit",
+		"test:perf": "vitest perf"
   },
   "dependencies": {},
   "devDependencies": {

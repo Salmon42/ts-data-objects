@@ -12,7 +12,7 @@ describe('String type assertions', () => {
 		it('should return true for string values', () => {
 			expect(isStr('')).toBe(true)
 			expect(isStr('hello')).toBe(true)
-			expect(isStr('template string')).toBe(true)
+			expect(isStr(`template string ${42}`)).toBe(true)
 			expect(isStr(String('constructed'))).toBe(true)
 		})
 
@@ -46,7 +46,8 @@ describe('String type assertions', () => {
 		it('should return true for string values', () => {
 			expect(isOptionalStr('')).toBe(true)
 			expect(isOptionalStr('hello')).toBe(true)
-			expect(isOptionalStr('template string')).toBe(true)
+			// eslint-disable-next-line @stylistic/quotes
+			expect(isOptionalStr(`template string`)).toBe(true)
 		})
 
 

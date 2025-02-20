@@ -36,8 +36,8 @@ module.exports = {
 	rules: {
 		// General JS/TS
 		'no-console': process.env.NODE_ENV === 'production' ?
-			['error', { allow: ['warn', 'error', 'info'] }] :
-			['warn', { allow: ['warn', 'error', 'info'] }],
+			['error', { allow: ['warn', 'error', 'info', 'table'] }] :
+			['warn', { allow: ['warn', 'error', 'info', 'table'] }],
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 		'no-empty': 'warn',
 
