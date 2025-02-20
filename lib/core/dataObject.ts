@@ -45,6 +45,12 @@ import type { DataConstructor } from './types'
  * @category Core Implementation
  */
 export const dataObject = <T extends object>(defaultValues?: Expect<T>): DataConstructor<T> =>
-	(o: Expect<T>): T => defaultValues
+	(o: Expect<T>): T => defaultValues // check if there are any default values
+		// if yes, merge default values with incoming data in expected object, where the data object replaces any defaults
 		? ({ ...defaultValues, ...o }) as T
-		: o as T
+		: (
+			o // check if the expected value is even supplied (e.g. null/undefined)
+				? o as T
+				// if no, return empty object
+				: {} as T
+		)
