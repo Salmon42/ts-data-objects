@@ -8,6 +8,7 @@ export default mergeConfig(
 		test: {
 			environment: 'jsdom',
 			include: ['tests/**'],
+			exclude: ['tests/utils/**'],
 			root: resolve(__dirname),
 		},
 	}),
