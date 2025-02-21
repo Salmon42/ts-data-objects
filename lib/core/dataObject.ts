@@ -36,6 +36,8 @@ import type { DataConstructor } from './types'
  *
  * Notes:
  * - Name collision with TS interface is possible and will work
+ * - The constructor performs shallow merge of objects! This means
+ * that nested objects are replaced rather than copied
  *
  * ---
  *
