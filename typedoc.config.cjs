@@ -15,6 +15,10 @@ module.exports = {
 	readme: 'tmp/doc-readme.md',
 	cacheBust: true,
 
+	navigation: {
+		includeCategories: true
+	},
+
 	navigationLinks: {
 		'GitHub': 'https://github.com/Salmon42/ts-data-objects',
 	},
