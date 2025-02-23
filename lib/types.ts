@@ -9,6 +9,8 @@ export type {
 	Expect,
 	DataObjectGuard,
 	GuardPredicate,
+	Predicate,
+	PredicateFunction,
 } from '@/common/types'
 
 export type {

@@ -1,5 +1,6 @@
 ## Changelog
 
+* `0.7.1`: Fix exports
 * `0.7.0`: Finalize unit tests, core perf tests, add `isObject` guard helper
 * `0.6.1`: Update README
 * `0.6.0`: Fix optional defaultValues for generated data object contructor, added thorough README
