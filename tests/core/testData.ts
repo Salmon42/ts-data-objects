@@ -15,3 +15,11 @@ export interface Config {
 	fontSize: number;
 	theme: string;
 }
+
+
+// Sample type for testing
+export interface TestData {
+	id: number
+	name: string
+	optional?: boolean
+}

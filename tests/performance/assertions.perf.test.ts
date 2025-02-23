@@ -5,6 +5,7 @@ import {
 	isBool, isOptionalBool,
 	isArrayOf, isOptionalArrayOf,
 	isOptionalObject,
+	isObject,
 } from '@/common/asserts'
 import { benchmark } from '../utils/performanceTest'
 
@@ -153,5 +154,123 @@ describe('Type Assertions Performance', () => {
 			['Medium nested array', 'Composed functions', `${mediumNestedComposed.toFixed(2)}ms`],
 			['Medium nested array', 'Manual implementation', `${mediumNestedManual.toFixed(2)}ms`],
 		])
+	})
+})
+
+
+describe('Object Assertions Performance', () => {
+	it('should benchmark isObject with different predicates and object sizes', () => {
+		// Simple predicate and object
+		const simpleObject = { name: 'test' }
+		const simplePredicate = (v: any): boolean => 'name' in v
+
+		// Complex predicate and object
+		const complexObject = {
+			id: 1,
+			user: {
+				name: 'test',
+				email: 'test@example.com',
+				settings: {
+					theme: 'dark',
+					notifications: true,
+					preferences: {
+						language: 'en',
+						timezone: 'UTC',
+						features: ['feature1', 'feature2', 'feature3'],
+					},
+				},
+			},
+			metadata: {
+				created: new Date(),
+				modified: new Date(),
+				tags: ['tag1', 'tag2', 'tag3'],
+			},
+		}
+
+		const complexPredicate = (v: any): boolean => {
+			try {
+				return typeof v.id === 'number' &&
+					typeof v.user.name === 'string' &&
+					typeof v.user.email === 'string' &&
+					typeof v.user.settings.theme === 'string' &&
+					typeof v.user.settings.notifications === 'boolean' &&
+					Array.isArray(v.user.settings.preferences.features) &&
+					Array.isArray(v.metadata.tags)
+			}
+			catch {
+				return false
+			}
+		}
+
+		// Array object and predicate
+		const largeArray = Array.from({ length: 1000 }, (_, i) => ({ id: i, value: `item${i}` }))
+		const arrayPredicate = (v: any): boolean =>
+			Array.isArray(v) && v.every(item =>
+				typeof item === 'object' &&
+				item !== null &&
+				typeof item.id === 'number' &&
+				typeof item.value === 'string',
+			)
+
+		// Run benchmarks
+		console.info('\n=== Object Assertion Performance Tests ===')
+
+		// Test with simple object and predicate
+		const simpleTime = benchmark(() => isObject(simpleObject, simplePredicate))
+		console.info(`Simple object check: ${simpleTime.toFixed(2)}ms`)
+
+		// Test with invalid input for simple predicate
+		const simpleInvalidTime = benchmark(() => isObject(null, simplePredicate))
+		console.info(`Simple object check (invalid input): ${simpleInvalidTime.toFixed(2)}ms`)
+
+		// Test with complex object and predicate
+		const complexTime = benchmark(() => isObject(complexObject, complexPredicate))
+		console.info(`Complex object check: ${complexTime.toFixed(2)}ms`)
+
+		// Test with complex object and invalid data
+		const invalidComplex = { ...complexObject, user: { name: 123 } }
+		const complexInvalidTime = benchmark(() => isObject(invalidComplex, complexPredicate))
+		console.info(`Complex object check (invalid data): ${complexInvalidTime.toFixed(2)}ms`)
+
+		// Test with large array
+		const arrayTime = benchmark(() => isObject(largeArray, arrayPredicate), 1000)
+		console.info(`Large array check (1000 items): ${arrayTime.toFixed(2)}ms`)
+
+		// Test with type predicate vs boolean predicate
+		type TestObject = { name: string; value: number }
+		const typePredicate = (v: unknown): v is TestObject =>
+			typeof v === 'object' &&
+			v !== null &&
+			'name' in v &&
+			'value' in v &&
+			typeof (v as any).name === 'string' &&
+			typeof (v as any).value === 'number'
+
+		const boolPredicate = (v: any): boolean =>
+			typeof v === 'object' &&
+			v !== null &&
+			typeof v.name === 'string' &&
+			typeof v.value === 'number'
+
+		const testObj = { name: 'test', value: 42 }
+
+		const typePredicateTime = benchmark(() => isObject(testObj, typePredicate))
+		const boolPredicateTime = benchmark(() => isObject(testObj, boolPredicate))
+
+		console.info(`Type predicate check: ${typePredicateTime.toFixed(2)}ms`)
+		console.info(`Boolean predicate check: ${boolPredicateTime.toFixed(2)}ms`)
+
+		// Error handling performance
+		const errorProne = (v: any): boolean => {
+			try {
+				return v.deeply.nested.property.exists === true
+			}
+			catch {
+				return false
+			}
+		}
+
+		const errorProneTime = benchmark(() => isObject({}, errorProne))
+		console.info(`Error handling check: ${errorProneTime.toFixed(2)}ms`)
 	})
 })
