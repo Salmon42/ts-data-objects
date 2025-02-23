@@ -31,8 +31,7 @@ info('Packing README and CHANGELOG into single file for TypeDoc...')
 const imagelink = 'Documentation Status: ![image](./coverage.svg)\n<hr/><br>'
 const readme = md2html('README.md')
 const changelog = md2html('readme/CHANGELOG.md')
-const scaffolding = md2html('readme/SCAFFOLDING.md')
-const content = `${imagelink}\n\n${readme}\n\n${changelog}\n\n${scaffolding}`
+const content = `${imagelink}\n\n${readme}\n\n${changelog}`
 
 if (!existsSync('tmp')) mkdirSync('tmp')
 writeFileSync('tmp/doc-readme.md', content, {
