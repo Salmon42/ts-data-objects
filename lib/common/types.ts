@@ -25,6 +25,19 @@ export type Predicate<T> = (value: unknown) => value is T
 
 
 /**
+ * A generic predicate function type that tests any value and returns a boolean.
+ * - TS-wise inferior to {@link Predicate}, but is useful when writing custom predicate logic
+ * inside one of functions
+ *
+ * @template T - The type of value being tested (inferred from usage)
+ * @param value - The value to test
+ * @returns A boolean indicating whether the value satisfies the predicate condition
+ * @category Common Utils
+ */
+export type PredicateFunction = (value: any) => boolean
+
+
+/**
  * Type signature for predicate functions that validate JSON objects.
  * Used to check if a partial object matches expected type constraints.
  *

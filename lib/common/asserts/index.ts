@@ -9,5 +9,5 @@
 export { isStr, isOptionalStr } from './string'
 export { isNum, isOptionalNum } from './number'
 export { isBool, isOptionalBool } from './boolean'
-export { isOptionalObject } from './object'
+export { isObject, isOptionalObject } from './object'
 export { isArrayOf, isOptionalArrayOf } from './array'
