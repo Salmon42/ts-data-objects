@@ -44,7 +44,7 @@ import type { DataConstructor } from './types'
  * @template T - The object type/interface to create a constructor for
  * @param [defaultValues] - Optional default values for the object properties
  * @returns A constructor function that creates objects of type T
- * @category Core Implementation
+ * @category Core Component
  */
 export const dataObject = <T extends object>(defaultValues?: Expect<T>): DataConstructor<T> =>
 	(o: Expect<T>): T => defaultValues // check if there are any default values

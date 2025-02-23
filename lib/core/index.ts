@@ -1,8 +1,6 @@
-/**
- * @categoryDescription Core Implementation
- * These functions are available for...
- * @module
- */
+//
+// Exports from core
+//
 
 export { dataGuard } from './dataGuard'
 export { dataObject } from './dataObject'

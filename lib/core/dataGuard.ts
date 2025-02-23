@@ -38,7 +38,7 @@ import type { Expect, GuardPredicate, DataObjectGuard } from '@/common/types'
  * @template T - The object type to create a guard for
  * @param predicate - Validation function that checks type constraints
  * @returns A type guard function that asserts input is of type T
- * @category Core Implementation
+ * @category Core Component
  */
 export const dataGuard = <T extends object>(predicate: GuardPredicate<T>): DataObjectGuard<T> =>
 	(dataObject?: Expect<T>): dataObject is T =>

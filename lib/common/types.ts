@@ -19,7 +19,7 @@ export type Expect<T> = Partial<T>
  * @template T The type being checked against
  * @param value - The unknown value to check
  * @returns A type predicate indicating whether the value is of type T
- * @category Common Utils
+ * @category Assertions
  */
 export type Predicate<T> = (value: unknown) => value is T
 
@@ -32,7 +32,7 @@ export type Predicate<T> = (value: unknown) => value is T
  * @template T - The type of value being tested (inferred from usage)
  * @param value - The value to test
  * @returns A boolean indicating whether the value satisfies the predicate condition
- * @category Common Utils
+ * @category Assertions
  */
 export type PredicateFunction = (value: any) => boolean
 
@@ -44,7 +44,7 @@ export type PredicateFunction = (value: any) => boolean
  * @template T - The object type to validate
  * @param [o] - Optional partial input data to validate
  * @returns Boolean indicating whether the input satisfies type constraints
- * @category Common Utils
+ * @category Core Component
  */
 export type GuardPredicate<T extends object> = (o?: Expect<T>) => boolean
 
@@ -58,6 +58,6 @@ export type GuardPredicate<T extends object> = (o?: Expect<T>) => boolean
  * @template T - The object type to guard
  * @param [o] - Optional partial input data to check
  * @returns Type predicate asserting the input is of type T
- * @category Common Utils
+ * @category Core Component
  */
 export type DataObjectGuard<T extends object> = (o?: Expect<T>) => o is T

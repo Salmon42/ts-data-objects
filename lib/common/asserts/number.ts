@@ -17,7 +17,7 @@
  *
  * @param value - Any value to check
  * @returns Type predicate indicating if the value is a number
- * @category Common Utils
+ * @category Assertions
  */
 export const isNum = (value: unknown): value is number =>
 	typeof value === 'number'
@@ -37,7 +37,7 @@ export const isNum = (value: unknown): value is number =>
  *
  * @param value - Any value to check
  * @returns Type predicate indicating if the value is a number
- * @category Common Utils
+ * @category Assertions
  */
 export const isOptionalNum = (value: unknown): value is number | null | undefined =>
 	value == null ||

@@ -17,7 +17,7 @@
  *
  * @param value - Any value to check
  * @returns Type predicate indicating if the value is a boolean
- * @category Common Utils
+ * @category Assertions
  */
 export const isBool = (value: unknown): value is boolean =>
 	typeof value === 'boolean'
@@ -37,7 +37,7 @@ export const isBool = (value: unknown): value is boolean =>
  *
  * @param value - Any value to check
  * @returns Type predicate indicating if the value is boolean or null/undefined
- * @category Common Utils
+ * @category Assertions
  */
 export const isOptionalBool = (value: unknown): value is boolean | null | undefined =>
 	value == null ||

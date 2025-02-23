@@ -1,4 +1,5 @@
-import { dataObject, dataDeepGuard, dataDeepParser } from '@/main'
+import { dataObject } from '@/core'
+import { dataDeepGuard, dataDeepParser } from '@/deep'
 
 
 export type ExampleData = {

@@ -14,6 +14,7 @@ import { Predicate, PredicateFunction } from '../types'
  * @param value - The value to check
  * @param predicate - The type guard function to check if the value is of type T
  * @returns A type predicate indicating whether the value is null, undefined, or of type T
+ * @category Assertions
  */
 export const isObject = <T>(value: unknown, predicate: Predicate<T> | PredicateFunction): value is T =>
 	typeof value === 'object' &&
@@ -29,6 +30,7 @@ export const isObject = <T>(value: unknown, predicate: Predicate<T> | PredicateF
  * @param value - The value to check
  * @param predicate - The type guard function to check if the value is of type T
  * @returns A type predicate indicating whether the value is null, undefined, or of type T
+ * @category Assertions
  */
 export const isOptionalObject = <T>(value: unknown, predicate: Predicate<T>): value is T | null | undefined =>
 	value == null ||

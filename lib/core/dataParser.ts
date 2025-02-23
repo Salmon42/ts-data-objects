@@ -15,7 +15,7 @@ import type { DataConstructor } from '@/core/types'
  * @param [value] - The input data to parse
  * @returns A validated and constructed object of type T
  * @throws {DataValidationError} When validation fails and doNotThrow is false
- * @category Core Implementation
+ * @category Core Component
  */
 const DPI = <T extends object>(
 	dataType: string,
@@ -77,7 +77,7 @@ const DPI = <T extends object>(
  * @param guardFunction - Type guard function (returned by `dataGuard()`)
  * @param [doNotThrow=false] - If true, logs errors instead of throwing
  * @returns A function that parses unknown data into type T
- * @category Core Implementation
+ * @category Core Component
  */
 export const dataParser = <T extends object>(
 	dataType: string,

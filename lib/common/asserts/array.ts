@@ -27,6 +27,7 @@ import { Predicate } from '../types'
  * @param value - The value to check
  * @param predicate - The type guard function to apply to each array element
  * @returns A type predicate indicating whether the value is an array of type T
+ * @category Assertions
  */
 export const isArrayOf = <T>(value: unknown, predicate: Predicate<T>): value is Array<T> =>
 	Array.isArray(value) &&
@@ -41,6 +42,7 @@ export const isArrayOf = <T>(value: unknown, predicate: Predicate<T>): value is 
  * @param value - The value to check
  * @param predicate - The type guard function to apply to each array element
  * @returns A type predicate indicating whether the value is null, undefined, or an array of type T
+ * @category Assertions
  */
 export const isOptionalArrayOf = <T>(value: unknown, predicate: Predicate<T>): value is Array<T> | null | undefined =>
 	value == null ||

@@ -17,7 +17,7 @@
  *
  * @param value - Any value to check
  * @returns Type predicate indicating if the value is a string
- * @category Common Utils
+ * @category Assertions
  */
 export const isStr = (value: unknown): value is string =>
 	typeof value === 'string'
@@ -37,7 +37,7 @@ export const isStr = (value: unknown): value is string =>
  *
  * @param value - Any value to check
  * @returns Type predicate indicating if the value is a string
- * @category Common Utils
+ * @category Assertions
  */
 export const isOptionalStr = (value: unknown): value is string | null | undefined =>
 	value == null ||

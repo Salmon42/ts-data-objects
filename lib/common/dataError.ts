@@ -11,7 +11,7 @@
  * throw new DataValidationError('UserData', invalidData, 'age must be a number')
  * ```
  *
- * @category Common Utils
+ * @category Core Component
  */
 export class DataValidationError extends Error {
 	constructor (
