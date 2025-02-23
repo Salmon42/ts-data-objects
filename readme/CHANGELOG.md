@@ -1,5 +1,11 @@
 ## Changelog
 
+* `1.0.0`
+	* Small finalizing touches to code documentation
+	* Introduced unit tests for assertions and core functions
+	* Declaring `ts-data-objects/common` as stable
+	* Declaring `ts-data-objects/core` as stable
+	* Declaring `ts-data-objects/deep` as experimental, but available
 * `0.7.1`: Fix exports
 * `0.7.0`: Finalize unit tests, core perf tests, add `isObject` guard helper
 * `0.6.1`: Update README
