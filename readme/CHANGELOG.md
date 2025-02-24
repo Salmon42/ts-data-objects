@@ -1,6 +1,7 @@
 ## Changelog
 
-* `1.0.0`
+* `1.0.1`: Fix docs
+* `1.0.0`:
 	* Small finalizing touches to code documentation
 	* Introduced unit tests for assertions and core functions
 	* Declaring `ts-data-objects/common` as stable
