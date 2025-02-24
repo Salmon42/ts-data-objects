@@ -31,6 +31,9 @@ const DPI = <T extends object>(
 		const error = new DataValidationError(dataType, value)
 		if (doNotThrow) {
 			console.error(error)
+			// attempt to wrap the data in constructor fn and return
+			// for the sake of returning back something
+			return constructorFunction(value)
 		}
 		else {
 			throw error
