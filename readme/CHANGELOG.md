@@ -1,5 +1,6 @@
 ## Changelog
 
+* `1.0.2`: Fix `parseObject` returning undefined on doNotThrow
 * `1.0.1`: Fix docs
 * `1.0.0`:
 	* Small finalizing touches to code documentation
