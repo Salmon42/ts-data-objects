@@ -65,7 +65,7 @@ type User = {
 }
 
 // Create a complete object definition with validation
-const { User, validUser, parseUser } = defineObject<User>('User', {
+const { User, isUser, parseUser } = defineObject<User>('User', {
   // Default values
   defaultValues: {
     verified: false
@@ -83,7 +83,7 @@ const user1 = User({ name: 'John', age: 20 })
 // Result: { name: 'John', age: 20, verified: false }
 
 // Validate unknown data
-if (validUser(someData)) {
+if (isUser(someData)) {
   // TS now knows that someData is User
   console.log(someData.name, someData.age)
 }
